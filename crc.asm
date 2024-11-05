@@ -339,7 +339,7 @@ instrcat:  lda     r6
 
            org     $ + 0ffh & 0ff00h
 
-#include crc.asm
+#include crctab.asm
 
            ; Include file descriptor in program image so it is initialized.
 

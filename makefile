@@ -1,24 +1,26 @@
 
-all: sum.bin
+all: crc.bin
 
-lbr: sum.lbr
+lbr: crc.lbr
 
-sum.bin: sum.asm crc.asm include/bios.inc include/kernel.inc
-	asm02 -L -b sum.asm
-	-rm -f sum.build
+clean:
+	rm -f crc.lst
+	rm -f crc.bin
+	rm -f crc.lbr
+	rm -f crctab
+	rm -f crctab.asm
+
+crc.bin: crc.asm crctab.asm include/bios.inc include/kernel.inc
+	asm02 -L -b crc.asm
+	rm -f crc.build
 
 crctab: crctab.c
 	cc -o crctab crctab.c
 
-crc.asm: crctab
-	./crctab > crc.asm
+crctab.asm: crctab
+	./crctab > crctab.asm
 
-sum.lbr: sum.bin
-	lbradd sum.lbr sum.bin
+crc.lbr: crc.bin
+	rm -f crc.lbr
+	lbradd crc.lbr crc.bin
 
-clean:
-	-rm -f sum.lst
-	-rm -f sum.bin
-	-rm -f sum.lbr
-	-rm -f crc.asm
-	-rm -f crctab
