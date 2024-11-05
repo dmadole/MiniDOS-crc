@@ -34,12 +34,12 @@ start:     org     2000h
 
            ; Build information
 
-           db      8+80h              ; month
-           db      8                  ; day
-           dw      2021               ; year
-           dw      2                  ; build
+           db      11+80h             ; month
+           db      5                  ; day
+           dw      2024               ; year
+           dw      3                  ; build
 
-           db      'See github.com/dmadole/Elfos-sum for more info',0
+           db      'See github.com/dmadole/MiniDOS-sum for more info',0
 
 
            ; Main code starts here, check provided argument
