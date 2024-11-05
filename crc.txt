@@ -1,0 +1,20 @@
+Name:
+  crc - calculate CRC of file
+
+Usage:
+  crc -[x|b] path
+
+Description:
+  This command calculates the CRC of a file, and can also calculate what the 
+  CRC of the file would be if XMODEM padding was added.
+
+Options:
+  -x (xmodem) calculates what the CRC would be if the file was XMODEM-padded
+  -b (both) calculates both the plain and XMODEM-padded CRCs of the file
+
+Details:
+  This version of crc uses pre-calculated CRC tables, which speed the 
+  calculation by approximately ten times over fully calculating on-the-fly.
+  
+Source:
+  Mini/DOS crc utility - https://github/dmadole/MiniDOS-crc
